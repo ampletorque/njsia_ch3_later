@@ -39,8 +39,9 @@ app.delete('/articles/:id', (req, res, next) => {
 
 app.post('/articles', (req, res, next) => {
 	const url = req.body.url;
-    read(url {err, result) => {
-	if (err || !result) res.status(500).send('Error downloading article);
+
+	read(url, (err, result) => {
+		if (err || !result) res.status(500).send('Error downloading article');
 		Article.create(
 			{ title: result.title, content: result.content },
 			(err, article) => {
