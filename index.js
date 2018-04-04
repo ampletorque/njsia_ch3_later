@@ -30,7 +30,7 @@ app.get('/articles', (req, res, next) => {
 
 app.get('/articles/:id', (req, res, next) => {
 	const id = req.params.id;
-	Aarticle.find(id, (err, article) => {
+	Article.find(id, (err, article) => {
 		if (err) return next(err);
          	res.send(articles[id]);
 	});
